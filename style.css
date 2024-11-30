@@ -3,6 +3,10 @@
   --color-green-dk: #91be72;
   --color-green-lt: #edfde6;
   --color-orange: #f4801c;
+  --color-dark: #222222;
+
+  --mobile-min: 320px;
+  --mobile-max: 480px;
 }
 
 html,
@@ -14,7 +18,7 @@ body {
 body {
   padding: 0;
   font-family: monospace;
-  background: #222222;
+  background: var(--color-dark);
 }
 
 * {
@@ -27,6 +31,20 @@ h1 {
   font-size: 5rem;
   font-family: monospace;
   font-weight: normal;
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+code {
+  color: var(--color-dark);
+  opacity: 0.9;
+}
+
+pre {
+  margin: 1rem 0 0 0;
+  font-size: clamp(0.4rem, 1.5vw, 1rem);
 }
 
 .container {
@@ -139,33 +157,43 @@ h1 {
 }
 
 .disk {
-  position: relative;
+  position: absolute;
+  z-index: 100;
   margin: 70px -44px 0 auto;
   width: 500px;
   height: 500px;
-  background: #262626;
-  border-radius: 4px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-  transform: rotate(5deg);
-  background-image: linear-gradient(
-    345deg,
-    hsl(0deg 0% 15%) 0%,
-    hsl(344deg 0% 16%) 20%,
-    hsl(344deg 0% 16%) 36%,
-    hsl(344deg 0% 17%) 47%,
-    hsl(344deg 0% 18%) 56%,
-    hsl(344deg 0% 19%) 63%,
-    hsl(344deg 0% 19%) 69%,
-    hsl(344deg 0% 20%) 75%,
-    hsl(344deg 0% 21%) 80%,
-    hsl(344deg 0% 22%) 85%,
-    hsl(344deg 0% 22%) 90%,
-    hsl(344deg 0% 23%) 95%,
-    hsl(0deg 0% 24%) 100%
-  );
 }
 
-@media (min-width: 480px) {
+.disk {
+  @media (min-width: 620px) {
+    position: relative;
+  }
+}
+
+.disk svg {
+  width: 500px;
+  filter: drop-shadow(1px 2px 6px rgb(0 0 0 / 0.4));
+  transform: rotate(5deg);
+  fill: #262626;
+  /* background-image: linear-gradient( */
+  /*   345deg, */
+  /*   hsl(0deg 0% 15%) 0%, */
+  /*   hsl(344deg 0% 16%) 20%, */
+  /*   hsl(344deg 0% 16%) 36%, */
+  /*   hsl(344deg 0% 17%) 47%, */
+  /*   hsl(344deg 0% 18%) 56%, */
+  /*   hsl(344deg 0% 19%) 63%, */
+  /*   hsl(344deg 0% 19%) 69%, */
+  /*   hsl(344deg 0% 20%) 75%, */
+  /*   hsl(344deg 0% 21%) 80%, */
+  /*   hsl(344deg 0% 22%) 85%, */
+  /*   hsl(344deg 0% 22%) 90%, */
+  /*   hsl(344deg 0% 23%) 95%, */
+  /*   hsl(0deg 0% 24%) 100% */
+  /* ); */
+}
+
+@media (min-width: 620px) {
   .disk_wrap {
     margin: 60px auto;
   }
@@ -186,21 +214,21 @@ h1 {
 }
 
 .disk-label {
-  position: relative;
-  top: 10px;
-  background: #fff url("../images/crumpled_paper.png") 0px 170px;
-  width: 480px;
+  position: absolute;
+  top: 8px;
+  left: 25px;
+  width: 468px;
   height: 130px;
-  margin: 10px;
   border-radius: 12px;
-  transform: rotate(0.2deg);
+  background: #fff;
+  transform: rotate(5deg);
 }
 
 .disk-label__border {
   position: relative;
   top: 5px;
   left: 5px;
-  width: 470px;
+  width: 458px;
   height: 120px;
   border: 3px solid var(--color-orange);
   border-radius: 8px;
@@ -242,19 +270,17 @@ h1 {
   background: #4d4840;
   box-shadow: inset 0 1px 1px #000;
   transform: translate(-50%, -50%);
+  z-index: -1;
 }
 
 .disk-circle:after {
   content: "";
   position: absolute;
-  left: 155px;
-  top: 95px;
-  width: 25px;
-  height: 25px;
-  border-radius: 100%;
-  border-bottom: 1px solid #666;
+  left: 143px;
+  top: 85px;
+  width: 45px;
+  height: 45px;
   background: #4d4840;
-  box-shadow: inset 0 1px 1px #000;
 }
 
 .disk-circle__inner {
@@ -291,10 +317,12 @@ h1 {
 .disk-slot {
   position: absolute;
   left: 50%;
-  bottom: 0;
-  width: 150px;
+  bottom: 10px;
+  width: 90px;
   height: 145px;
-  transform: translateX(-50%);
+  transform: translateX(-66%) rotate(5deg);
+  background: #4d4840;
+  z-index: -1;
 }
 
 .disk-slot__slot {
