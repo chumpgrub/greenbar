@@ -54,6 +54,9 @@ pre {
   overflow-x: hidden
 }
 
+/* -------------------------------- *
+ * Paper styles
+ * -------------------------------- */
 .paper {
   display: flex;
   min-height: 97vh;
@@ -110,13 +113,15 @@ pre {
   padding: 3px 0;
   display: flex;
   flex-direction: column;
-  counter-reset: row-counter;
   font-family: monospace;
   font-size: 8px;
   line-height: 12px;
   align-items: center;
   background-color: var(--color-green-lt);
+  counter-reset: row-counter;
   list-style-position: inside;
+  list-style-type: none;
+  list-style: none;
 }
 
 .paper-main__nums:first-of-type {
@@ -135,6 +140,19 @@ pre {
   text-align: center;
 }
 
+.paper-main__nums li::marker {
+  content: none;
+  display: none;
+}
+
+.paper-main__nums li::before {
+  content: counter(row-counter);
+  display: block;
+  letter-spacing: -1px;
+  text-align: center;
+  color: var(--color-green-dk);
+}
+
 .paper-edge ol {
   margin: -20px 0 0 0;
   padding: 0 11px;
@@ -142,10 +160,6 @@ pre {
   display: flex;
   flex-direction: column;
   gap: 1.658rem;
-}
-
-.paper-edge__holes li {
-
 }
 
 .paper-edge__holes li::after {
@@ -158,12 +172,9 @@ pre {
   margin-left: calc(16px + 5px) * -1;
 }
 
-.paper-main__nums li::marker {
-  content: counter(row-counter);
-  color: var(--color-green-dk);
-  letter-spacing: -1px;
-}
-
+/* -------------------------------- *
+ * Floppy disk styles
+ * -------------------------------- */
 .disk {
   position: relative;
 }
@@ -268,61 +279,6 @@ pre {
   transform: translateX(-66%) rotate(5deg);
   background: #4d4840;
   z-index: -1;
-}
-
-.disk-slot__slot {
-  width: 50px;
-  height: 135px;
-  margin-left: 40px;
-  background: #4d4840;
-  border-radius: 40px;
-  border-bottom: 1px solid #666;
-  box-shadow: inset 0 1px 1px #000;
-}
-
-.disk-slot__notches {
-  position: absolute;
-  bottom: -3px;
-  height: 12px;
-  width: 150px;
-  overflow: hidden;
-}
-
-.disk-slot__notches span {
-  display: inline-block;
-  height: 16px;
-  width: 16px;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  /* overflow: hidden; */
-  /* border-bottom: 4px solid #fff; */
-  box-shadow: inset 0 1px 3px #000;
-}
-
-.disk-slot__notches span:last-child {
-  float: right;
-}
-
-.disk-slot__notches span:before {
-  content: "";
-  width: 16px;
-  height: 40px;
-  display: inline-block;
-  border-radius: 16px;
-  background: #fff;
-  /* border-bottom: 1px solid #fff; */
-  box-shadow: inset 0 1px 3px #000;
-}
-
-.disk-slot__notches span:last-child::before {
-  background-color: var(--color-green-lt);
-}
-
-.disk-slot__notches span:after {
-  content: "";
-  width: 16px;
-  height: 40px;
-  display: inline-block;
 }
 
 hr {
