@@ -50,6 +50,8 @@ pre {
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
+  overflow-x: hidden
 }
 
 .paper {
@@ -157,6 +159,10 @@ pre {
 }
 
 .disk {
+  position: relative;
+}
+
+.disk-wrapper {
   position: absolute;
   z-index: 100;
   margin: 70px -44px 0 auto;
@@ -164,7 +170,7 @@ pre {
   height: 500px;
 }
 
-.disk {
+.disk-wrapper {
   @media (min-width: 620px) {
     position: relative;
   }
@@ -175,42 +181,6 @@ pre {
   filter: drop-shadow(1px 2px 6px rgb(0 0 0 / 0.4));
   transform: rotate(5deg);
   fill: #262626;
-  /* background-image: linear-gradient( */
-  /*   345deg, */
-  /*   hsl(0deg 0% 15%) 0%, */
-  /*   hsl(344deg 0% 16%) 20%, */
-  /*   hsl(344deg 0% 16%) 36%, */
-  /*   hsl(344deg 0% 17%) 47%, */
-  /*   hsl(344deg 0% 18%) 56%, */
-  /*   hsl(344deg 0% 19%) 63%, */
-  /*   hsl(344deg 0% 19%) 69%, */
-  /*   hsl(344deg 0% 20%) 75%, */
-  /*   hsl(344deg 0% 21%) 80%, */
-  /*   hsl(344deg 0% 22%) 85%, */
-  /*   hsl(344deg 0% 22%) 90%, */
-  /*   hsl(344deg 0% 23%) 95%, */
-  /*   hsl(0deg 0% 24%) 100% */
-  /* ); */
-}
-
-@media (min-width: 620px) {
-  .disk_wrap {
-    margin: 60px auto;
-  }
-}
-
-@media (min-width: 768px) {
-  .disk_wrap {
-    margin: 60px 0 0 50%;
-    -webkit-transform: rotate(2deg);
-    transform: rotate(2deg);
-  }
-}
-
-@media (min-width: 992px) {
-  .disk_wrap {
-    margin: 60px 0 0 50%;
-  }
 }
 
 .disk-label {
@@ -261,57 +231,26 @@ pre {
 
 .disk-circle {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 150px;
-  height: 150px;
+  top: 49.9%;
+  left: 49.7%;
+  width: 160px;
+  height: 160px;
   border-radius: 100%;
-  border-bottom: 1px solid #666;
-  background: #4d4840;
-  box-shadow: inset 0 1px 1px #000;
+  border: 15px solid #4d4840;
+  box-shadow: inset 0px 0px 0px 9px #222, inset 0 0 10px 5px #000;
   transform: translate(-50%, -50%);
   z-index: -1;
 }
 
-.disk-circle:after {
+.disk-circle::after {
   content: "";
   position: absolute;
-  left: 143px;
-  top: 85px;
-  width: 45px;
-  height: 45px;
+  right: -65px;
+  bottom: 0;
+  width: 60px;
+  height: 60px;
   background: #4d4840;
-}
-
-.disk-circle__inner {
-  margin-top: 7px;
-  margin-left: 10px;
-  width: 130px;
-  height: 130px;
-  border: 8px solid #222;
-  border-radius: 100%;
-  background: #fff;
-  box-shadow: inset 0 1px 4px #000;
-}
-
-.disk-circle__inner::after {
-  content: "";
-  display: block;
-  width: 114px;
-  height: 114px;
-  border-radius: 100%;
-  box-shadow: inset 0 1px 4px #000;
-  background: repeating-linear-gradient(
-    var(--color-white) 0px,
-    var(--color-white) 47px,
-    var(--color-green-dk) 47px,
-    var(--color-green-dk) 47px,
-    var(--color-green-lt) 49px,
-    var(--color-green-lt) 95px,
-    var(--color-green-dk) 95px,
-    var(--color-green-dk) 96px
-  );
-  transform: rotate(-5deg);
+  z-index: -1;
 }
 
 .disk-slot {
