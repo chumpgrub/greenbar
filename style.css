@@ -283,5 +283,8 @@ pre {
 
 hr {
   margin: 0 -32px;
-  border-top: 1px dotted #eee;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23222222FF' stroke-width='3' stroke-dasharray='2%2c 6' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-top: none;
+  border-bottom: none;
+  height: 1px;
 }
