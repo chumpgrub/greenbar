@@ -3,7 +3,7 @@
   --color-green-dk: #91be72;
   --color-green-lt: #edfde6;
   --color-orange: #f4801c;
-  --color-dark: #222222;
+  --color-dark: #262320;
 
   --mobile-min: 320px;
   --mobile-max: 480px;
@@ -39,7 +39,7 @@ h1 {
 
 code {
   color: var(--color-dark);
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 pre {
