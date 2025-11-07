@@ -7,6 +7,18 @@
 
   --mobile-min: 320px;
   --mobile-max: 480px;
+
+  /* vim-pyte color scheme */
+  --pyte-fg: #404850;
+  --pyte-comment: #a0b0c0;
+  --pyte-string: #4070a0;
+  --pyte-number: #40a070;
+  --pyte-keyword: #007020;
+  --pyte-function: #06287e;
+  --pyte-identifier: #5b3674;
+  --pyte-operator: #408010;
+  --pyte-type: #e5a00d;
+  --pyte-preprocessor: #1060a0;
 }
 
 html,
@@ -38,7 +50,7 @@ h1 {
 }
 
 code {
-  color: var(--color-dark);
+  color: var(--pyte-fg);
   opacity: 0.85;
 }
 
@@ -291,14 +303,74 @@ hr {
 
 /* -------------------------------- *
  * Terminal/Resume content styles
+ * vim-pyte color scheme
  * -------------------------------- */
 .terminal {
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.6;
-  color: var(--color-dark);
+  color: var(--pyte-fg);
   white-space: pre-wrap;
   word-wrap: break-word;
+}
+
+/* Syntax highlighting using vim-pyte colors */
+.terminal .cmd {
+  color: var(--pyte-keyword);
+  font-weight: bold;
+}
+
+.terminal .path {
+  color: var(--pyte-string);
+}
+
+.terminal .comment {
+  color: var(--pyte-comment);
+  font-style: italic;
+}
+
+.terminal .string {
+  color: var(--pyte-string);
+}
+
+.terminal .number {
+  color: var(--pyte-number);
+}
+
+.terminal .keyword {
+  color: var(--pyte-keyword);
+  font-weight: bold;
+}
+
+.terminal .function {
+  color: var(--pyte-function);
+  font-style: italic;
+}
+
+.terminal .identifier {
+  color: var(--pyte-identifier);
+}
+
+.terminal .operator {
+  color: var(--pyte-operator);
+}
+
+.terminal .type {
+  color: var(--pyte-type);
+}
+
+.terminal .label {
+  color: var(--pyte-identifier);
+  font-weight: bold;
+}
+
+.terminal .section-divider {
+  color: var(--pyte-operator);
+}
+
+.terminal .prompt {
+  color: var(--pyte-keyword);
+  font-weight: bold;
 }
 
 /* -------------------------------- *
