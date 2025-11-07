@@ -288,3 +288,107 @@ hr {
   opacity: 0.4;
   height: 1px;
 }
+
+/* -------------------------------- *
+ * Terminal/Resume content styles
+ * -------------------------------- */
+.terminal {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-dark);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* -------------------------------- *
+ * Print styles
+ * -------------------------------- */
+@media print {
+  body {
+    background: var(--color-white);
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  .paper {
+    min-height: auto;
+    padding: 0;
+  }
+
+  .paper-main {
+    max-height: none;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .paper-main__rows {
+    /* Maintain greenbar stripes in print */
+    background: repeating-linear-gradient(
+      var(--color-green-lt) 0px,
+      var(--color-green-lt) 46px,
+      var(--color-green-dk) 46px,
+      var(--color-green-dk) 46px,
+      var(--color-white) 48px,
+      var(--color-white) 96px,
+      var(--color-green-dk) 96px,
+      var(--color-green-dk) 97px
+    );
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  .paper-edge__holes li::after {
+    /* Maintain hole punch aesthetic in print */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  .disk svg {
+    /* Maintain disk color in print */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  .disk-label__border {
+    /* Maintain orange border in print */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  .paper-main__nums li::before {
+    /* Maintain line number colors in print */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  .paper-main__nums {
+    /* Maintain background color in print */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  hr {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  .terminal {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  /* Ensure sections don't break across pages */
+  .paper-container {
+    page-break-inside: avoid;
+  }
+}
